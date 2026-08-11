@@ -1,0 +1,49 @@
+.proj-sticky-grid{
+  display:grid; grid-template-columns:18rem 1fr; gap:3rem; align-items:start;
+}
+.proj-sticky-col{
+  position:sticky; top:7rem;
+}
+.proj-sticky-col h2{ margin:0.6rem 0 1.2rem; }
+.proj-lede{ color:var(--muted); font-size:0.95rem; line-height:1.6; max-width:20rem; }
+
+.proj-filters{ display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:2rem; }
+.proj-filter-btn{
+  font-family:'Space Mono', monospace; font-size:0.78rem;
+  padding:0.5rem 1rem; border-radius:999px;
+  border:1px solid var(--line); background:transparent; color:var(--muted);
+  cursor:pointer; transition:border-color 0.2s, color 0.2s, background 0.2s;
+}
+.proj-filter-btn:hover{ border-color:var(--mustard); color:var(--mustard); }
+.proj-filter-btn.active{ border-color:var(--chili); background:rgba(214,64,43,0.14); color:var(--cream); }
+
+.proj-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1.2rem; }
+@media (max-width:1020px){ .proj-sticky-grid{ grid-template-columns:1fr; } .proj-sticky-col{ position:static; margin-bottom:1rem; } }
+@media (max-width:760px){ .proj-grid{ grid-template-columns:1fr; } }
+.proj-card{
+  background:var(--bg-alt); border:1px solid var(--line); border-radius:4px;
+  padding:1.8rem; position:relative; cursor:pointer;
+  transition:border-color 0.25s ease;
+}
+.proj-card:hover{ border-color:var(--chili); }
+.proj-tag{
+  display:inline-block; font-family:'Space Mono', monospace; font-size:0.7rem;
+  letter-spacing:0.08em; color:var(--mustard); background:rgba(231,169,62,0.1);
+  padding:0.25rem 0.6rem; border-radius:2px; margin-bottom:1rem;
+}
+.proj-card h3{
+  font-family:'Big Shoulders Display', sans-serif; font-weight:700;
+  font-size:1.6rem; text-transform:uppercase; color:var(--cream); margin-bottom:0.5rem;
+}
+.proj-card p{ color:var(--muted); font-size:0.9rem; line-height:1.5; }
+.proj-views{
+  margin-top:1.2rem; font-family:'Space Mono', monospace; font-size:1.6rem;
+  color:var(--chili); font-weight:700;
+}
+.proj-views span{ font-size:0.7rem; color:var(--muted); display:block; margin-top:0.15rem; font-family:'Work Sans',sans-serif; }
+.proj-expand{
+  display:block; margin-top:1rem; font-family:'Space Mono', monospace; font-size:0.72rem;
+  color:var(--muted); opacity:0; transform:translateY(4px);
+  transition:opacity 0.2s, transform 0.2s;
+}
+.proj-card:hover .proj-expand{ opacity:1; transform:translateY(0); }

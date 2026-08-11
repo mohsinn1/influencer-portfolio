@@ -1,0 +1,29 @@
+.hero{
+  min-height:100svh;
+  display:flex; flex-direction:column; justify-content:center;
+  position:relative;
+  padding-top:5rem;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 85% 15%, rgba(214,64,43,0.18), transparent),
+    radial-gradient(ellipse 50% 40% at 10% 80%, rgba(231,169,62,0.10), transparent);
+  pointer-events:none;
+}
+.hero-inner{ position:relative; z-index:2; }
+.hero .eyebrow{ margin-bottom:1.2rem; }
+h1.display{
+  font-size:clamp(3.2rem, 11vw, 8.2rem);
+  color:var(--cream);
+}
+h1.display span{ color:var(--chili); }
+.hero-tagline{
+  max-width:34rem; margin-top:1.6rem;
+  font-size:clamp(1rem, 1.6vw, 1.2rem);
+  color:var(--muted); line-height:1.55;
+}
+.hero-cta{
+  display:flex; gap:1rem; margin-top:2.4rem; flex-wrap:wrap;
+}

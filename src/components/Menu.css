@@ -1,0 +1,17 @@
+.menu-list{ display:grid; gap:0; }
+.menu-item{
+  display:flex; justify-content:space-between; align-items:baseline;
+  padding:1.5rem 0; border-bottom:1px solid var(--line);
+  gap:1.5rem;
+}
+.menu-item:first-child{ border-top:1px solid var(--line); }
+.menu-item h3{
+  font-family:'Big Shoulders Display', sans-serif; font-weight:700;
+  font-size:1.5rem; text-transform:uppercase; letter-spacing:0.01em;
+  color:var(--cream); white-space:nowrap;
+}
+.menu-item .desc{ color:var(--muted); font-size:0.92rem; text-align:right; max-width:22rem; }
+@media (max-width:640px){
+  .menu-item{ flex-direction:column; align-items:flex-start; gap:0.4rem; }
+  .menu-item .desc{ text-align:left; }
+}

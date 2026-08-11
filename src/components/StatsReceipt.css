@@ -1,0 +1,42 @@
+.receipt-scroll{
+  position:relative;
+  height:320vh;
+}
+.receipt-sticky{
+  position:sticky;
+  top:0;
+  height:100svh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.receipt-wrap{ display:flex; justify-content:center; width:100%; padding:0 6vw; }
+.receipt{
+  background:var(--cream); color:#241a14;
+  width:100%; max-width:420px;
+  padding:2.4rem 2rem 2.8rem;
+  font-family:'Space Mono', monospace;
+  position:relative;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
+}
+.receipt::before, .receipt::after{
+  content:""; position:absolute; left:0; right:0; height:12px;
+  background:
+    linear-gradient(135deg, var(--bg) 25%, transparent 25%) -6px 0,
+    linear-gradient(225deg, var(--bg) 25%, transparent 25%) -6px 0;
+  background-size:12px 12px; background-repeat:repeat-x;
+}
+.receipt::before{ top:-1px; }
+.receipt::after{ bottom:-1px; transform:rotate(180deg); }
+.receipt-title{ text-align:center; margin-bottom:0.3rem; font-weight:700; letter-spacing:0.05em; font-size:0.95rem; }
+.receipt-sub{ text-align:center; font-size:0.7rem; color:#6b5c48; margin-bottom:1.6rem; }
+.receipt hr{ border:none; border-top:1px dashed #cbb99a; margin:1.3rem 0; }
+.receipt-row{ display:flex; justify-content:space-between; font-size:0.85rem; padding:0.45rem 0; min-height:1.6rem; }
+.receipt-row .k{ color:#4a3d2c; }
+.receipt-row .v{ font-weight:700; }
+.receipt-total{
+  display:flex; justify-content:space-between; align-items:baseline;
+  margin-top:0.4rem; padding-top:1rem; border-top:2px solid #241a14;
+  font-size:0.95rem; font-weight:700;
+}
+.receipt-note{ text-align:center; font-size:0.7rem; margin-top:1.6rem; color:#6b5c48; }

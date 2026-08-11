@@ -1,0 +1,17 @@
+.contact{
+  background:var(--bg-alt); border-top:1px solid var(--line);
+  padding:7rem 0;
+}
+.contact h2{
+  font-size:clamp(2.6rem, 9vw, 6rem); color:var(--cream); margin-bottom:1.2rem;
+}
+.contact h2 span{ color:var(--chili); }
+.contact p{ color:var(--muted); font-size:1.05rem; max-width:32rem; margin-bottom:2.2rem; }
+.contact-links{ display:flex; flex-wrap:wrap; gap:1rem; margin-bottom:3rem; }
+.contact-meta{
+  display:flex; flex-wrap:wrap; gap:2.5rem;
+  font-family:'Space Mono', monospace; font-size:0.85rem; color:var(--muted);
+  border-top:1px solid var(--line); padding-top:2rem;
+}
+.contact-meta a{ transition:color 0.2s; }
+.contact-meta a:hover{ color:var(--mustard); }

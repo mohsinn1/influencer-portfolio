@@ -1,0 +1,10 @@
+.partner-wall{
+  display:flex; flex-wrap:wrap; gap:0.9rem;
+}
+.partner-chip{
+  font-family:'Space Mono', monospace; font-size:0.85rem;
+  border:1px solid var(--line); padding:0.7rem 1.2rem; border-radius:999px;
+  color:var(--cream); transition:border-color 0.25s ease, background 0.25s ease;
+  cursor:default;
+}
+.partner-chip:hover{ border-color:var(--mustard); background:rgba(231,169,62,0.08); }

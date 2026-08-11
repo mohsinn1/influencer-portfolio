@@ -1,0 +1,15 @@
+.ticker-band{
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  background:var(--bg-alt);
+  padding:0.9rem 0; overflow:hidden; white-space:nowrap;
+  position:relative; z-index:2;
+}
+.ticker-track{
+  display:inline-flex; gap:2.5rem;
+  will-change:transform;
+}
+.ticker-track span{
+  font-family:'Space Mono', monospace; font-size:0.85rem;
+  letter-spacing:0.08em; color:var(--muted);
+}
+.ticker-track span.hot{ color:var(--mustard); }

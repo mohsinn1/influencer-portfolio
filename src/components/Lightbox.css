@@ -1,0 +1,32 @@
+.lightbox-backdrop{
+  position:fixed; inset:0; z-index:100;
+  background:rgba(10,7,5,0.72);
+  backdrop-filter:blur(3px);
+  display:flex; align-items:center; justify-content:center;
+  padding:6vw;
+}
+.lightbox-card{
+  position:relative;
+  background:var(--bg-alt);
+  border:1px solid var(--line);
+  border-top:3px solid var(--chili);
+  border-radius:4px;
+  max-width:32rem; width:100%;
+  padding:2.6rem 2.2rem 2.4rem;
+  box-shadow:0 40px 80px -20px rgba(0,0,0,0.6);
+}
+.lightbox-close{
+  position:absolute; top:1rem; right:1rem;
+  width:2.2rem; height:2.2rem; border-radius:50%;
+  border:1px solid var(--line); background:transparent; color:var(--cream);
+  font-size:1.3rem; line-height:1; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:border-color 0.2s, color 0.2s;
+}
+.lightbox-close:hover{ border-color:var(--mustard); color:var(--mustard); }
+.lightbox-card h3{
+  font-family:'Big Shoulders Display', sans-serif; font-weight:700;
+  font-size:2rem; text-transform:uppercase; color:var(--cream);
+  margin:1rem 0 1rem;
+}
+.lightbox-detail{ color:var(--muted); font-size:0.98rem; line-height:1.65; margin-bottom:1.6rem; }

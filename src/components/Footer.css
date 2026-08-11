@@ -1,0 +1,8 @@
+footer{
+  text-align:center; padding:2rem 0; font-family:'Space Mono', monospace;
+  font-size:0.75rem; color:var(--muted); background:var(--bg-alt);
+}
+.footer-legal{ margin-top:0.8rem; }
+.footer-legal a{ transition:color 0.2s; }
+.footer-legal a:hover{ color:var(--mustard); }
+.footer-dot{ margin:0 0.6rem; color:var(--line); }

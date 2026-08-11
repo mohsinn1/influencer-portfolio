@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinza Mohsin — Food Content Creator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #1b1410;
+    --bg-alt: #241a14;
+    --cream: #f6ecd9;
+    --chili: #d6402b;
+    --mustard: #e7a93e;
+    --muted: #b8a78e;
+    --line: rgba(246,236,217,0.14);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'Work Sans', sans-serif;
+    overflow-x:hidden;
+  }
+
+  .display{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:0.9;
+  }
+
+  .mono{ font-family:'Space Mono', monospace; }
+
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--mustard);
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  ::selection{ background:var(--chili); color:var(--cream); }
+
+  :focus-visible{ outline:2px solid var(--mustard); outline-offset:3px; }
+
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 6vw; }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.4rem 6vw;
+    background:linear-gradient(to bottom, rgba(27,20,16,0.92), rgba(27,20,16,0));
+    backdrop-filter:blur(2px);
+  }
+  .nav-mark{
+    display:flex; align-items:center; gap:0.6rem;
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:900; font-size:1.4rem; letter-spacing:0.03em;
+  }
+  .nav-mark .dot{ width:8px; height:8px; border-radius:50%; background:var(--chili); }
+  .nav-links{ display:flex; gap:1.8rem; font-size:0.85rem; }
+  .nav-links a{ opacity:0.85; transition:opacity 0.2s; }
+  .nav-links a:hover{ opacity:1; color:var(--mustard); }
+  @media (max-width:640px){ .nav-links{ display:none; } }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex; flex-direction:column; justify-content:center;
+    position:relative;
+    padding-top:5rem;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 60% 50% at 85% 15%, rgba(214,64,43,0.18), transparent),
+      radial-gradient(ellipse 50% 40% at 10% 80%, rgba(231,169,62,0.10), transparent);
+    pointer-events:none;
+  }
+  .hero-inner{ position:relative; z-index:2; }
+  .hero .eyebrow{ margin-bottom:1.2rem; opacity:0; animation:riseIn 0.7s ease forwards 0.1s; }
+  h1.display{
+    font-size:clamp(3.2rem, 11vw, 8.2rem);
+    color:var(--cream);
+    opacity:0; animation:riseIn 0.8s ease forwards 0.25s;
+  }
+  h1.display span{ color:var(--chili); }
+  .hero-tagline{
+    max-width:34rem; margin-top:1.6rem;
+    font-size:clamp(1rem, 1.6vw, 1.2rem);
+    color:var(--muted); line-height:1.55;
+    opacity:0; animation:riseIn 0.8s ease forwards 0.4s;
+  }
+  .hero-cta{
+    display:flex; gap:1rem; margin-top:2.4rem; flex-wrap:wrap;
+    opacity:0; animation:riseIn 0.8s ease forwards 0.55s;
+  }
+  .btn{
+    font-family:'Space Mono', monospace; font-size:0.85rem;
+    padding:0.85rem 1.6rem; border-radius:2px;
+    border:1px solid var(--line);
+    transition:all 0.25s ease;
+    display:inline-flex; align-items:center; gap:0.5rem;
+  }
+  .btn-solid{ background:var(--chili); border-color:var(--chili); color:var(--cream); }
+  .btn-solid:hover{ background:#b8351f; transform:translateY(-2px); }
+  .btn-outline:hover{ border-color:var(--mustard); color:var(--mustard); transform:translateY(-2px); }
+
+  @keyframes riseIn{ from{ opacity:0; transform:translateY(18px);} to{ opacity:1; transform:translateY(0);} }
+
+  /* ---------- TICKER ---------- */
+  .ticker-band{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    background:var(--bg-alt);
+    padding:0.9rem 0; overflow:hidden; white-space:nowrap;
+    position:relative; z-index:2;
+  }
+  .ticker-track{
+    display:inline-flex; gap:2.5rem;
+    animation:scroll 28s linear infinite;
+  }
+  .ticker-track span{
+    font-family:'Space Mono', monospace; font-size:0.85rem;
+    letter-spacing:0.08em; color:var(--muted);
+  }
+  .ticker-track span.hot{ color:var(--mustard); }
+  @keyframes scroll{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+  @media (prefers-reduced-motion:reduce){ .ticker-track{ animation:none; } }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:7rem 0; position:relative; }
+  .section-head{ margin-bottom:3rem; }
+  .section-head .eyebrow{ margin-bottom:0.8rem; }
+  .section-head h2{
+    font-size:clamp(2.2rem, 5vw, 3.6rem);
+    color:var(--cream);
+  }
+
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:4rem; align-items:start;
+  }
+  @media (max-width:820px){ .about-grid{ grid-template-columns:1fr; gap:2.5rem; } }
+  .about-plate{
+    aspect-ratio:4/5; border-radius:4px;
+    background:
+      repeating-linear-gradient(135deg, rgba(246,236,217,0.05) 0 2px, transparent 2px 14px),
+      linear-gradient(160deg, var(--chili), #8f2417 70%);
+    display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .about-plate .initials{
+    font-family:'Big Shoulders Display', sans-serif; font-weight:900;
+    font-size:7rem; color:rgba(246,236,217,0.92); line-height:1;
+  }
+  .about-plate .ring{
+    position:absolute; width:135%; aspect-ratio:1; border-radius:50%;
+    border:1.5px dashed rgba(246,236,217,0.25);
+    animation:spin 40s linear infinite;
+  }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  @media (prefers-reduced-motion:reduce){ .about-plate .ring{ animation:none; } }
+
+  .about-copy p{ font-size:1.05rem; line-height:1.75; color:var(--cream); opacity:0.92; margin-bottom:1.3rem; }
+  .about-facts{ margin-top:2rem; display:grid; gap:0.9rem; }
+  .about-facts div{
+    display:flex; justify-content:space-between; align-items:baseline;
+    border-bottom:1px dotted var(--line); padding-bottom:0.6rem;
+    font-family:'Space Mono', monospace; font-size:0.85rem;
+  }
+  .about-facts .label{ color:var(--muted); letter-spacing:0.05em; }
+  .about-facts .value{ color:var(--mustard); }
+
+  /* ---------- RECEIPT / STATS ---------- */
+  .receipt-wrap{ display:flex; justify-content:center; }
+  .receipt{
+    background:var(--cream); color:#241a14;
+    width:100%; max-width:420px;
+    padding:2.4rem 2rem 2.8rem;
+    font-family:'Space Mono', monospace;
+    position:relative;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
+  }
+  .receipt::before, .receipt::after{
+    content:""; position:absolute; left:0; right:0; height:12px;
+    background:
+      linear-gradient(135deg, var(--bg) 25%, transparent 25%) -6px 0,
+      linear-gradient(225deg, var(--bg) 25%, transparent 25%) -6px 0;
+    background-size:12px 12px; background-repeat:repeat-x;
+  }
+  .receipt::before{ top:-1px; }
+  .receipt::after{ bottom:-1px; transform:rotate(180deg); }
+  .receipt-title{ text-align:center; margin-bottom:0.3rem; font-weight:700; letter-spacing:0.05em; font-size:0.95rem; }
+  .receipt-sub{ text-align:center; font-size:0.7rem; color:#6b5c48; margin-bottom:1.6rem; }
+  .receipt hr{ border:none; border-top:1px dashed #cbb99a; margin:1.3rem 0; }
+  .receipt-row{ display:flex; justify-content:space-between; font-size:0.85rem; padding:0.45rem 0; }
+  .receipt-row .k{ color:#4a3d2c; }
+  .receipt-row .v{ font-weight:700; }
+  .receipt-total{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-top:0.4rem; padding-top:1rem; border-top:2px solid #241a14;
+    font-size:0.95rem; font-weight:700;
+  }
+  .receipt-note{ text-align:center; font-size:0.7rem; margin-top:1.6rem; color:#6b5c48; }
+
+  /* ---------- MENU (content pillars) ---------- */
+  .menu-list{ display:grid; gap:0; }
+  .menu-item{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:1.5rem 0; border-bottom:1px solid var(--line);
+    gap:1.5rem;
+  }
+  .menu-item:first-child{ border-top:1px solid var(--line); }
+  .menu-item h3{
+    font-family:'Big Shoulders Display', sans-serif; font-weight:700;
+    font-size:1.5rem; text-transform:uppercase; letter-spacing:0.01em;
+    color:var(--cream); white-space:nowrap;
+  }
+  .menu-item .desc{ color:var(--muted); font-size:0.92rem; text-align:right; max-width:22rem; }
+  @media (max-width:640px){
+    .menu-item{ flex-direction:column; align-items:flex-start; gap:0.4rem; }
+    .menu-item .desc{ text-align:left; }
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .proj-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1.2rem; }
+  @media (max-width:760px){ .proj-grid{ grid-template-columns:1fr; } }
+  .proj-card{
+    background:var(--bg-alt); border:1px solid var(--line); border-radius:4px;
+    padding:1.8rem; position:relative; transition:border-color 0.25s ease, transform 0.25s ease;
+  }
+  .proj-card:hover{ border-color:var(--chili); transform:translateY(-4px); }
+  .proj-tag{
+    display:inline-block; font-family:'Space Mono', monospace; font-size:0.7rem;
+    letter-spacing:0.08em; color:var(--mustard); background:rgba(231,169,62,0.1);
+    padding:0.25rem 0.6rem; border-radius:2px; margin-bottom:1rem;
+  }
+  .proj-card h3{
+    font-family:'Big Shoulders Display', sans-serif; font-weight:700;
+    font-size:1.6rem; text-transform:uppercase; color:var(--cream); margin-bottom:0.5rem;
+  }
+  .proj-card p{ color:var(--muted); font-size:0.9rem; line-height:1.5; }
+  .proj-views{
+    margin-top:1.2rem; font-family:'Space Mono', monospace; font-size:1.6rem;
+    color:var(--chili); font-weight:700;
+  }
+  .proj-views span{ font-size:0.7rem; color:var(--muted); display:block; margin-top:0.15rem; font-family:'Work Sans',sans-serif; }
+
+  /* ---------- PARTNERSHIPS ---------- */
+  .partner-wall{
+    display:flex; flex-wrap:wrap; gap:0.9rem;
+  }
+  .partner-chip{
+    font-family:'Space Mono', monospace; font-size:0.85rem;
+    border:1px solid var(--line); padding:0.7rem 1.2rem; border-radius:999px;
+    color:var(--cream); transition:all 0.25s ease;
+  }
+  .partner-chip:hover{ border-color:var(--mustard); background:rgba(231,169,62,0.08); }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:var(--bg-alt); border-top:1px solid var(--line);
+    padding:7rem 0;
+  }
+  .contact h2{
+    font-size:clamp(2.6rem, 9vw, 6rem); color:var(--cream); margin-bottom:1.2rem;
+  }
+  .contact h2 span{ color:var(--chili); }
+  .contact p{ color:var(--muted); font-size:1.05rem; max-width:32rem; margin-bottom:2.2rem; }
+  .contact-links{ display:flex; flex-wrap:wrap; gap:1rem; margin-bottom:3rem; }
+  .contact-meta{
+    display:flex; flex-wrap:wrap; gap:2.5rem;
+    font-family:'Space Mono', monospace; font-size:0.85rem; color:var(--muted);
+    border-top:1px solid var(--line); padding-top:2rem;
+  }
+  .contact-meta a:hover{ color:var(--mustard); }
+
+  footer{
+    text-align:center; padding:2rem 0; font-family:'Space Mono', monospace;
+    font-size:0.75rem; color:var(--muted); background:var(--bg-alt);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-mark"><span class="dot"></span>KINZA MOHSIN</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#partners">Partners</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <h1 class="display"><span>Kinza</span><br>Mohsin</h1>
+    <p class="hero-tagline">I turn Lahore's food scene into content people actually crave — honest reviews, first-bite reactions, and launch coverage that gets restaurants seen by the people deciding where to eat tonight.</p>
+    <div class="hero-cta">
+      <a class="btn btn-solid" href="https://instagram.com/kinza__mohsin" target="_blank" rel="noopener">Instagram →</a>
+      <a class="btn btn-outline" href="https://wa.me/923297462916" target="_blank" rel="noopener">Start a collab</a>
+    </div>
+  </div>
+</header>
+
+<div class="ticker-band">
+  <div class="ticker-track">
+    <span class="hot">FRYX</span><span>·</span>
+    <span>CHEESE PLEASE</span><span>·</span>
+    <span>VILLA THE GRAND BUFFET</span><span>·</span>
+    <span>NOURISH RESTAURANT</span><span>·</span>
+    <span>THREE FLAMES BY MANSHA TIKKA</span><span>·</span>
+    <span>CHAMAN ICE CREAM</span><span>·</span>
+    <span>ROSE PALACE BUFFET</span><span>·</span>
+    <span class="hot">FRYX</span><span>·</span>
+    <span>CHEESE PLEASE</span><span>·</span>
+    <span>VILLA THE GRAND BUFFET</span><span>·</span>
+    <span>NOURISH RESTAURANT</span><span>·</span>
+    <span>THREE FLAMES BY MANSHA TIKKA</span><span>·</span>
+    <span>CHAMAN ICE CREAM</span><span>·</span>
+    <span>ROSE PALACE BUFFET</span><span>·</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about-grid reveal">
+    <div class="about-plate">
+      <div class="ring"></div>
+      <div class="initials">KM</div>
+    </div>
+    <div class="about-copy">
+      <div class="eyebrow">Meet the creator</div>
+      <h2 class="display" style="font-size:clamp(2rem,4vw,3rem); margin:0.8rem 0 1.6rem;">Hello, I'm Kinza</h2>
+      <p>I'm a food-first content creator who makes restaurants and food brands the main character of a scroll. Restaurant reviews and on-ground launch event coverage — I shoot and edit everything myself, with an instinct for the shot that actually stops the thumb.</p>
+      <p>I'm currently Media Head at University of Home Economics, running content strategy for live events and campaigns — so brand collaborations get the same planning, not just a phone and a plate of food.</p>
+      <div class="about-facts">
+        <div><span class="label">BASED IN</span><span class="value">LAHORE, PK</span></div>
+        <div><span class="label">SPECIALTY</span><span class="value">FOOD · UGC · REVIEWS</span></div>
+        <div><span class="label">ALSO COVERS</span><span class="value">SKINCARE · MAKEUP</span></div>
+        <div><span class="label">TURNAROUND</span><span class="value">SHOOT → EDIT → POST</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS / RECEIPT -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">The numbers</div>
+      <h2 class="display">Reach that's actually hungry</h2>
+    </div>
+    <div class="receipt-wrap reveal">
+      <div class="receipt">
+        <div class="receipt-title">KINZA'S ORDER SUMMARY</div>
+        <div class="receipt-sub">@kinza__mohsin · lahore, pk</div>
+        <hr>
+        <div class="receipt-row"><span class="k">Followers</span><span class="v">11.8K</span></div>
+        <div class="receipt-row"><span class="k">30-Day Views</span><span class="v">187.6K</span></div>
+        <div class="receipt-row"><span class="k">Top Video (FryX)</span><span class="v">259K+</span></div>
+        <div class="receipt-row"><span class="k">Avg. Views / Reel</span><span class="v">15K–20K</span></div>
+        <hr>
+        <div class="receipt-row"><span class="k">Audience in Pakistan</span><span class="v">98.9%</span></div>
+        <div class="receipt-row"><span class="k">Audience in Lahore</span><span class="v">64.3%</span></div>
+        <div class="receipt-row"><span class="k">Aged 18–34</span><span class="v">89.3%</span></div>
+        <div class="receipt-total"><span>YOUR BRAND</span><span>SERVED FRESH</span></div>
+        <div class="receipt-note">** no refunds on cravings **</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU / CONTENT PILLARS -->
+<section id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">What I create</div>
+      <h2 class="display">The Menu</h2>
+    </div>
+    <div class="menu-list reveal">
+      <div class="menu-item">
+        <h3>Restaurant &amp; Café Reviews</h3>
+        <div class="desc">Honest, cinematic sit-down reviews that build trust before they build hype.</div>
+      </div>
+      <div class="menu-item">
+        <h3>Restaurant Launch Events</h3>
+        <div class="desc">On-ground coverage for new branch openings and signing ceremonies — see: Villa The Grand Buffet, DHA Broadway.</div>
+      </div>
+      <div class="menu-item">
+        <h3>Menu Highlights</h3>
+        <div class="desc">Content built to spotlight a new dish or seasonal menu at the moment it matters most.</div>
+      </div>
+      <div class="menu-item">
+        <h3>Product Endorsements</h3>
+        <div class="desc">Skincare and makeup features for brands looking outside the food lane.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Past projects</div>
+      <h2 class="display">Proof, not promises</h2>
+    </div>
+    <div class="proj-grid reveal">
+      <div class="proj-card">
+        <span class="proj-tag">FOOD REVIEW</span>
+        <h3>FryX — Paragon City</h3>
+        <p>Highest-performing food review to date. The reel that put FryX in front of a city-wide audience.</p>
+        <div class="proj-views">259K+ <span>views</span></div>
+      </div>
+      <div class="proj-card">
+        <span class="proj-tag">FOOD REVIEW</span>
+        <h3>Cheese Please — Gulberg</h3>
+        <p>A taste-test-driven review that turned into one of the account's most-shared pieces of content.</p>
+        <div class="proj-views">122K <span>views</span></div>
+      </div>
+      <div class="proj-card">
+        <span class="proj-tag">MULTI-BRANCH · EVENT</span>
+        <h3>Villa The Grand Buffet</h3>
+        <p>Ongoing collaboration across all Lahore branches, plus on-ground coverage of the DHA Broadway branch launch.</p>
+        <div class="proj-views">33K <span>views · all branches + launch event</span></div>
+      </div>
+      <div class="proj-card">
+        <span class="proj-tag">FOOD REVIEW</span>
+        <h3>Nourish Restaurant</h3>
+        <p>A straightforward, appetite-first review shot to highlight the menu's signature plates.</p>
+        <div class="proj-views">18.6K <span>views</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERSHIPS -->
+<section id="partners">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Previous partnerships</div>
+      <h2 class="display">Brands I've fed content to</h2>
+    </div>
+    <div class="partner-wall reveal">
+      <div class="partner-chip">Villa The Grand Buffet</div>
+      <div class="partner-chip">FryX</div>
+      <div class="partner-chip">Cheese Please</div>
+      <div class="partner-chip">Three Flames by Mansha Tikka</div>
+      <div class="partner-chip">Chaman Ice Cream</div>
+      <div class="partner-chip">Nourish Restaurant</div>
+      <div class="partner-chip">Baraza Coffee</div>
+      <div class="partner-chip">Rose Palace Buffet</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="display">Let's get<br>you <span>served</span>.</h2>
+      <p>Have a restaurant, café, or product you want in front of a hungry Lahore audience? Send a message — I usually reply within a day.</p>
+      <div class="contact-links">
+        <a class="btn btn-solid" href="https://wa.me/923297462916" target="_blank" rel="noopener">WhatsApp me →</a>
+        <a class="btn btn-outline" href="https://instagram.com/kinza__mohsin" target="_blank" rel="noopener">DM on Instagram</a>
+      </div>
+      <div class="contact-meta">
+        <a href="https://wa.me/923297462916" target="_blank" rel="noopener">WhatsApp: +92 329 7462916</a>
+        <a href="https://instagram.com/kinza__mohsin" target="_blank" rel="noopener">@kinza__mohsin</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>© 2026 KINZA MOHSIN — FOOD CONTENT CREATOR, LAHORE</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
